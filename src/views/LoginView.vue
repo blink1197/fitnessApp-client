@@ -93,12 +93,6 @@ const handleLogin = async () => {
   min-height: 100%;
 }
 
-.login-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
 .bypass-container {
   max-width: 520px;
   background: #f8f9fa;

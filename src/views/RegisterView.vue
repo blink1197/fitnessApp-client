@@ -88,23 +88,9 @@ const handleRegister = async () => {
 </template>
 
 <style scope>
-.login-image {
-  background-image: url("@/assets/images/login_image.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 480px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
 .col-md-6>.login-image {
   display: block;
   min-height: 100%;
-}
-
-.login-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .bypass-container {
