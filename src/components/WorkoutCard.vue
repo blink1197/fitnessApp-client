@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <UpdateWorkoutModal ref="modalRef" :workout="workout" @save="onSave" />
+    <UpdateWorkoutModal ref="modalRef" @save="onSave" :workoutId="id" />
   </div>
 </template>
 

@@ -44,43 +44,49 @@
 </template>
 
 <script setup>
+import { useWorkoutStore } from '@/stores/workout';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps({
-  workout: Object,
+  workoutId: { type: String, required: true },
   title: { type: String, default: 'Update Workout' }
 });
 
 const emit = defineEmits(['save']);
+
+const workoutStore = useWorkoutStore();
 
 const form = ref({
   name: '',
   duration: '',
   status: 'pending'
 });
+
 const errorMessage = ref('');
 const modalRef = ref(null);
 let modalInstance = null;
 
-// Initialize Bootstrap modal
+// Initialize modal
 onMounted(() => {
   modalInstance = new bootstrap.Modal(modalRef.value, { backdrop: 'static' });
 });
 
-// Populate form initially and whenever props.workout changes
-watch(
-  () => props.workout,
-  (newWorkout) => {
-    form.value.name = newWorkout?.name || '';
-    form.value.duration = newWorkout?.duration || '';
-    form.value.status = newWorkout?.status || 'pending';
-    errorMessage.value = '';
-  },
-  { immediate: true }
-);
 
-const open = () => modalInstance.show();
+const open = () => {
+  const workout = workoutStore.workouts.find(
+    w => w._id === props.workoutId || w.id === props.workoutId
+  );
+
+  if (workout) {
+    form.value.name = workout.name;
+    form.value.duration = workout.duration;
+    form.value.status = workout.status;
+  }
+
+  errorMessage.value = '';
+  modalInstance.show();
+};
 const close = () => modalInstance.hide();
 
 const save = () => {
@@ -89,7 +95,7 @@ const save = () => {
     return;
   }
 
-  emit('save', { ...props.workout, ...form.value });
+  emit('save', { id: props.workoutId, ...form.value });
   errorMessage.value = '';
   close();
 };
