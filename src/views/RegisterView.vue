@@ -50,6 +50,9 @@ const handleRegister = async () => {
         <div class="w-100" style="max-width:720px;">
           <div class="">
             <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <img src="/logo.png" alt="Logo" class="mb-4 mx-auto img-fluid" style="width: 120px; height: auto;" />
+              </div>
               <h2 class="card-title text-center mb-4 fw-bold">Create your account</h2>
               <p class="card-text text-center text-muted mb-4">
                 Let's start your fitness journey here.
