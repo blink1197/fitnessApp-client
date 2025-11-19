@@ -9,7 +9,9 @@
     </button>
 
     <!-- Open Modal Button -->
-    <button class="btn btn-primary mt-5 w-75" @click="openModal" :disabled="isLoading">
+    <button class="btn btn-primary mt-5 w-75 d-flex justify-content-center align-items-center" @click="openModal"
+      :disabled="isLoading">
+      <i class="bi bi-plus fs-3"></i>
       Add Workout
     </button>
 
