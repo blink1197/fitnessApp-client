@@ -6,25 +6,34 @@
     </span>
 
     <div class="card-body d-flex flex-column justify-content-between">
-      <div>
-        <h5 class="card-title mb-2">{{ name }}</h5>
-        <p class="card-text text-muted mb-3">
+      <!-- Title + Duration -->
+      <div class="mb-3">
+        <h5 class="card-title fw-bold">{{ name }}</h5>
+        <p class="card-text text-muted">
+          <i class="bi bi-clock ms-1"></i>
           Duration: <strong>{{ duration }} mins</strong>
         </p>
       </div>
 
+      <!-- Action Buttons -->
       <div class="d-flex gap-2 mt-auto">
-        <button class="btn btn-outline-primary btn-sm w-100" @click="openModal">
-          Update
+
+        <button class="btn btn-primary btn-sm w-100 d-flex align-items-center justify-content-center"
+          @click="openModal">
+          <i class="bi bi-pencil-square me-1"></i> Update
         </button>
 
-        <button v-if="status === 'pending'" class="btn btn-outline-success btn-sm w-100" @click="completeWorkout(id)">
-          Complete
+        <button v-if="status === 'pending'"
+          class="btn btn-success btn-sm w-100 d-flex align-items-center justify-content-center"
+          @click="completeWorkout(id)">
+          <i class="bi bi-check2-circle me-1"></i> Complete
         </button>
 
-        <button class="btn btn-outline-danger btn-sm w-100" @click="deleteWorkOut(id)">
-          Delete
+        <button class="btn btn-danger btn-sm w-100 d-flex align-items-center justify-content-center"
+          @click="deleteWorkOut(id)">
+          <i class="bi bi-trash3 me-1"></i> Delete
         </button>
+
       </div>
     </div>
 
