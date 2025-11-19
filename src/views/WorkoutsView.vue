@@ -61,6 +61,7 @@ const notyf = new Notyf();
 const router = useRouter();
 const workoutStore = useWorkoutStore();
 const userStore = useUserStore();
+const { logout } = userStore
 
 const workoutModalRef = ref(null);
 const isLoading = ref(false);
@@ -79,11 +80,6 @@ const saveWorkout = async (newWorkout) => {
   }
 };
 
-// Logout
-const logout = () => {
-  localStorage.clear();
-  router.push('/login');
-};
 
 // Fetch workouts
 onBeforeMount(async () => {

@@ -1,13 +1,13 @@
 <script setup>
 import { useUserStore } from '@/stores/user.js';
 import { Notyf } from 'notyf';
-import { ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
 
 
 const router = useRouter();
 const userStore = useUserStore()
-const { register } = userStore
+const { register, isLoggedIn } = userStore
 
 // refs
 const email = ref('')
@@ -40,6 +40,10 @@ const handleRegister = async () => {
     isLoading.value = false
   }
 }
+
+onBeforeMount(() => {
+  if (isLoggedIn) router.push('/workouts');
+})
 </script>
 
 
