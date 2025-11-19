@@ -77,7 +77,7 @@ export const useUserStore = defineStore('user', () => {
       console.error('Register failed failed:', error);
       return {
         success: false,
-        message: error.response?.data?.message || 'Login failed. Please try again.',
+        message: error.response?.data?.message || 'Register failed. Please try again.',
       };
     }
   }
