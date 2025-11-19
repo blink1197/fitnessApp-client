@@ -20,7 +20,7 @@ const goToWorkouts = () => {
 
     <!-- Button -->
     <button class="btn btn-primary btn-lg" @click="goToWorkouts">
-      Go to Workouts
+      Get Started
     </button>
   </main>
 </template>
